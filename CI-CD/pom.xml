@@ -13,8 +13,6 @@
   <artifactId>webapp</artifactId>
   <packaging>war</packaging>
 
-  <name>Web Application</name>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
@@ -22,7 +20,6 @@
 
   <dependencies>
 
-    <!-- Servlet API -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
@@ -30,7 +27,6 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- JSP API -->
     <dependency>
       <groupId>javax.servlet.jsp</groupId>
       <artifactId>jsp-api</artifactId>
@@ -43,14 +39,17 @@
   <build>
     <plugins>
 
-      <!-- ✅ FIXED WAR PLUGIN (IMPORTANT FOR YOUR ERROR) -->
+      <!-- ✅ FIXED WAR PLUGIN -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.3.2</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
       </plugin>
 
-      <!-- Java 17 Compiler -->
+      <!-- Java 17 compiler -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
